@@ -3,15 +3,26 @@
     <head>
         <title>Submission JajanSkuy</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"
-        <link rel="stylesheet" href="style.css">    
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/> 
+        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"/>   -->
     </head>
-    <body onload="trinilaJajan();">
+    <body onload="loadJajan();">
+
         <div class="page-main">
-            <h1 align="center">
-                JajanSkuy! 
-            </h1>
+            <p style="text-align:center">JajanSkuy!</p>
+            <p>Login Terlebih Dahulu Sebelum Memesan</p>
         </div>
 
+        <div id="liffAppContent">
+            <div class="buttonGroup">
+                <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
+                <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
+            </div>
+        </div>  
+
     </body>
+    <script src="trinilaJajan.js"></script>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script src="liff-starter.js"></script>
 </html>
