@@ -38,10 +38,24 @@
                 <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
                 <button id="liffLogoutButton" class="btn btn-warning btn-small">Log out</button>
             </div>
+
+            <div id="statusMessage">
+                <div id="isInClientMessage"></div>
+                <div id="apiReferenceMessage">
+                </div>
+            </div>
         </div> 
+
+        <div id="liffIdErrorMessage" class="hidden">
+            <code id="code-block"></code>
+        </div>
         
         <!-- LIFF INIT ERROR -->
         <div id="liffInitErrorMessage" class="hidden">
+        </div>
+
+        <!-- NODE.JS LIFF ID ERROR -->
+        <div id="nodeLiffIdErrorMessage" class="hidden">
         </div>
 
     </body>
