@@ -4,7 +4,7 @@ window.onload = function() {
  
     // DO NOT CHANGE THIS
     let myLiffId = "";
-    console.log("satu hohoho77");
+    console.log("satu hohoho88");
     // if node is used, fetch the environment variable and pass it to the LIFF method
     // otherwise, pass defaultLiffId
     if (useNodeJS) {
