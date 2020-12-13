@@ -5,7 +5,7 @@ window.onload = function() {
     // DO NOT CHANGE THIS
     let myLiffId = "";
 
-    console.log("satu hohohof");
+    console.log("satu hohoho66");
  
     // if node is used, fetch the environment variable and pass it to the LIFF method
     // otherwise, pass defaultLiffId
@@ -57,8 +57,8 @@ function initializeLiff(myLiffId) {
             initializeApp();
         })
         .catch((err) => {
-            // document.getElementById("liffAppContent").classList.add('hidden');
-            // document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+            document.getElementById("liffAppContent").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
 }
  
@@ -102,7 +102,7 @@ function displayIsInClientInfo() {
 function registerButtonHandlers() {
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({
-            url: 'https://trinilajankuy.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
+            url: 'https://mojajan.herokuapp.com/',
             external: true
         });
     });
@@ -143,5 +143,18 @@ function registerButtonHandlers() {
         }
     });
 }
+
+function sendAlertIfNotInClient() {
+    alert('This button is unavailable as LIFF is currently being opened in an external browser.');
+}
+
+function toggleElement(elementId) {
+    const elem = document.getElementById(elementId);
+    if (elem.offsetWidth > 0 && elem.offsetHeight > 0) {
+        elem.style.display = 'none';
+    } else {
+        elem.style.display = 'block';
+    }
+}   
 
 
