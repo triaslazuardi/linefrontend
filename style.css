@@ -2,7 +2,10 @@
 
 body {
     padding: 60px;
-    background-image: url("../jajanSkuy/image/bg_white.jpg");
+    background-image: url("bg_white.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
 
 .page-main p:nth-child(1) {
