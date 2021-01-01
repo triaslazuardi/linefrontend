@@ -15,8 +15,41 @@
                 <p>Login Terlebih Dahulu Sebelum Memesan</p>
             </div>
     
-            <div id="list-makanan">
-    
+            <div class="list-menu">
+                <div class="menu-makanan">
+                    <h1>Makanan</h1>
+                    <p>Bakso : 5000
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handleMinus('pm1')">-</button>
+                        <span id="makan1" style="position: relative; left: 50%;">0</span>
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handlePlus('pm1')">+</button>
+                    </p>
+                    <p>Miyam : 5000
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handleMinus('pm2')">-</button>
+                        <span id="makan2" style="position: relative; left: 50%;">0</span>
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handlePlus('pm2')">+</button>
+                    </p>
+
+                    <hr>
+
+                    <h1>Minuman</h1>
+                    
+                    <p>leale : 3500
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handleMinus('pm3')">-</button>
+                        <span id="minum1" style="position: relative; left: 50%;">0</span>
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handlePlus('pm3')">+</button>
+                    </p>
+                    <p>mineral : 2500
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handleMinus('pm4')">-</button>
+                        <span id="minum2" style="position: relative; left: 50%;">0</span>
+                        <button style="position: relative; left: 50%;" class="plusminus1" onclick="handlePlus('pm4')">+</button>
+                    </p>
+
+                    <hr>
+                    <p>Total = 
+                        <span id="total" style="position: relative; left: 1%;">0</span>
+                        <button style="position: relative; left: 50%;" class="confirm" onclick="handleConfirm('pm4')">Konfirm</button>
+                    </p>
+                </div>
             </div>
 
             <!--Konten LIFF v2-->
@@ -25,7 +58,7 @@
                 <!-- ACTION BUTTONS -->
                 <div class="buttonGroup">
                     <div class="buttonRow">
-                        <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
+                        <!-- <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button> -->
                         <button id="closeWindowButton" class="btn btn-danger btn-small">Close LIFF App</button>
                         <button id="sendMessageButton" class="btn btn-warning btn-small">Send Message</button>
                     </div>
@@ -46,6 +79,7 @@
                         </tr>
                     </table>
                 </div>
+
                 <!-- LOGIN LOGOUT BUTTONS -->
                 <div class="buttonGroup">
                     <button id="liffLoginButton" class="btn btn-success btn-small">Log in</button>
@@ -53,44 +87,45 @@
                 </div>
                 <div id="statusMessage">
                     <div id="isInClientMessage"></div>
+                    <button id="openWindowButton" class="btn btn-success btn-small">Open External Window</button>
                     <div id="apiReferenceMessage">
-                        <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
+                        <!-- <p>Available LIFF methods vary depending on the browser you use to open the LIFF app.</p>
                         <p>Please refer to the <a
                                 href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">API reference
-                                page</a> for more information.</p>
+                                page</a> for more information.</p> -->
                     </div>
                 </div>
             </div>
 
             <!-- LIFF ID ERROR -->
             <div id="liffIdErrorMessage" class="hidden">
-                <p>You have not assigned any value for LIFF ID.</p>
+                <!-- <p>You have not assigned any value for LIFF ID.</p>
                 <p>If you are running the app using Node.js, please set the LIFF ID as an environment variable in your
-                    Heroku account follwing the below steps: </p>
+                    Heroku account follwing the below steps: </p> -->
                 <code id="code-block">
                     <ol>
-                        <li>Go to `Dashboard` in your Heroku account.</li>
+                        <!-- <li>Go to `Dashboard` in your Heroku account.</li>
                         <li>Click on the app you just created.</li>
                         <li>Click on `Settings` and toggle `Reveal Config Vars`.</li>
                         <li>Set `MY_LIFF_ID` as the key and the LIFF ID as the value.</li>
-                        <li>Your app should be up and running. Enter the URL of your app in a web browser.</li>
+                        <li>Your app should be up and running. Enter the URL of your app in a web browser.</li> -->
                     </ol>
                 </code>
-                <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
+                <!-- <p>If you are using any other platform, please add your LIFF ID in the <code>index.html</code> file.</p>
                 <p>For more information about how to add your LIFF ID, see <a
                         href="https://developers.line.biz/en/reference/liff/#initialize-liff-app">Initializing the LIFF
-                        app</a>.</p>
+                        app</a>.</p> -->
             </div>
             
             <!-- LIFF INIT ERROR -->
             <div id="liffInitErrorMessage" class="hidden">
-                <p>Something went wrong with LIFF initialization.</p>
-                <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>.
+                <!-- <p>Something went wrong with LIFF initialization.</p>
+                <p>LIFF initialization can fail if a user clicks "Cancel" on the "Grant permission" screen, or if an error occurs in the process of <code>liff.init()</code>. -->
             </div>
 
             <!-- NODE.JS LIFF ID ERROR -->
             <div id="nodeLiffIdErrorMessage" class="hidden">
-                <p>Unable to receive the LIFF ID as an environment variable.</p>
+                <!-- <p>Unable to receive the LIFF ID as an environment variable.</p> -->
             </div>
     
             

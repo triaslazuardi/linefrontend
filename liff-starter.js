@@ -71,9 +71,13 @@ function initializeApp() {
  
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
-        document.getElementById('liffLoginButton').disabled = true;
+        document.getElementById('liffLogoutButton').style.visibility= "visible";
+        document.getElementById('liffLoginButton').style.visibility= "hidden";
+        // document.getElementById('liffLoginButton').disabled = true;
     } else {
-        document.getElementById('liffLogoutButton').disabled = true;
+        document.getElementById('liffLogoutButton').style.visibility= "hidden";
+        document.getElementById('liffLoginButton').style.visibility= "visible";
+        // document.getElementById('liffLogoutButton').disabled = true;
     }
 }
  
@@ -84,6 +88,9 @@ Pada function displayLiffData berguna untuk menampilkan informasi yang diperoleh
 function displayLiffData() {
     document.getElementById('isInClient').textContent = liff.isInClient();
     document.getElementById('isLoggedIn').textContent = liff.isLoggedIn();
+    console.log("1 displayLiffData" + liff.isLoggedIn());
+    console.log("2 displayLiffData" + liff.isInClient());
+    console.log("displayLiffData");
 }
  
 /**
@@ -91,12 +98,14 @@ function displayLiffData() {
 Function displayIsInClientInfo berperan untuk mengecek apabila pengguna menjalankan aplikasi LIFF dari LINE maka pesan “You are opening the app in the in-app browser of LINE” akan tampil. Namun apabila kita menjalankannya di eksternal browser, maka yang tampil adalah“You are opening the app in an external browser.”
 */
 function displayIsInClientInfo() {
+    console.log("displayIsInClientInfo " + liff.isInClient());
     if (liff.isInClient()) {
         document.getElementById('liffLoginButton').classList.toggle('hidden');
         document.getElementById('liffLogoutButton').classList.toggle('hidden');
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in the in-app browser of LINE.';
     } else {
         document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
+        document.getElementById('openWindowButton').style.visibility= "hidden";
     }
 }
 
@@ -153,6 +162,22 @@ function registerButtonHandlers() {
     });
 
     
+}
+
+function ExampleSendMessage(_text){
+    console.log("iya kesini");
+    if (!liff.isInClient()) {
+        sendAlertIfNotInClient();
+    } else {
+        liff.sendMessages([{
+            'type': 'text',
+            'text': _text
+        }]).then(function() {
+            window.alert('Ini adalah pesan dari fitur Send Message');
+        }).catch(function(error) {
+            window.alert('Error sending message: ' + error);
+        });
+    }
 }
 
 // Function sendAlertIfNotInClient berguna untuk menampilkan pesan di layar yang menandakan aplikasi LIFF tidak mendukung eksternal browser. Sedangkan function toggleElement digunakan untuk beralih dari satu elemen ke elemen yang lainnya.
