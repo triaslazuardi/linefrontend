@@ -9,13 +9,12 @@
     </head>
     <body onload="loadJajan();">
         <div class="col-xs-12 col-md-8 col-md-offset-2" ng-controller="listContactCtrl">
-
-            <div class="page-main">
-                <p style="text-align:center">JajanSkuy!</p>
-                <p>Login Terlebih Dahulu Sebelum Memesan</p>
+            <p style="text-align:center">JajanSkuy!</p>
+            <div id="page-main" class="well">
+                <p id="welcome" >Login Terlebih Dahulu Sebelum Memesan</p>
             </div>
     
-            <div class="list-menu">
+            <div id="page-menu" class="well">
                 <div class="menu-makanan">
                     <h1>Makanan</h1>
                     <p>Bakso : 5000
@@ -70,11 +69,11 @@
                     <h3 id="liffDataHeader" class="textLeft">Informasi:</h3>
                     <table>
                         <tr>
-                            <th>isInClient : </th>
+                            <th>isInClient : </th> 
                             <td id="isInClient" class="textLeft"></td>
                         </tr>
                         <tr>
-                            <th>isLoggedIn : </th>
+                            <th>isLoggedIn : </th> 
                             <td id="isLoggedIn" class="textLeft"></td>
                         </tr>
                     </table>

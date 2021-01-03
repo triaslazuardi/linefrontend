@@ -7,15 +7,7 @@ var allMakan = 0;
 var allMinum = 0;
 
 function loadJajan(){
-    console.log("load jajan");
-}
-
-function gantiPanel(_menu){
-    if(_menu == "list-menu"){
-
-    }else{
-
-    }
+    console.log("versi 3");
 }
 
 function handleMinus(_text){
@@ -113,7 +105,7 @@ function handleConfirm(){
         } else if(allMakan == 0){
             text = "minuman : " + allMinum;
         } else{
-            text =`minuman : ${allMinum}, makanan : ${allMakan}`; 
+            text =`minuman : ${allMinum} dan makanan : ${allMakan}`; 
         }
 
         console.log(text);

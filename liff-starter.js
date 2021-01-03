@@ -1,10 +1,11 @@
+var namaLine;
 window.onload = function() {
     const useNodeJS = false;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1655321225-jRmN3pZW";   // change the default LIFF value if you are not using a node server
+    const defaultLiffId = "isi id line liff";   // change the default LIFF value if you are not using a node server
  
     // DO NOT CHANGE THIS
     let myLiffId = "";
-    console.log("satu hohoho99");
+    console.log("versi 3");
     // if node is used, fetch the environment variable and pass it to the LIFF method
     // otherwise, pass defaultLiffId
     if (useNodeJS) {
@@ -70,13 +71,30 @@ function initializeApp() {
     registerButtonHandlers();
  
     // check if the user is logged in/out, and disable inappropriate button
-    if (liff.isLoggedIn()) {
+    if (liff.isLoggedIn()) { 
         document.getElementById('liffLogoutButton').style.visibility= "visible";
         document.getElementById('liffLoginButton').style.visibility= "hidden";
+        // document.getElementById('page-main').style.visibility= "hidden";
+        liff.getProfile() 
+        .then(profile => {
+            namaLine = profile.displayName;
+            document.getElementById("welcome").innerHTML = `halo ${namaLine}, silahkan pilih menu `;
+        })
+        .catch((err) => {
+          console.log('error', err);
+        });
+        document.getElementById('page-menu').style.visibility= "visible";
+        // $('#page-main').hide();
+        // $('#page-menu').fadeIn();
         // document.getElementById('liffLoginButton').disabled = true;
-    } else {
+    } else { 
         document.getElementById('liffLogoutButton').style.visibility= "hidden";
         document.getElementById('liffLoginButton').style.visibility= "visible";
+        // document.getElementById('page-main').style.visibility= "visible";
+        document.getElementById("welcome").innerHTML = "Selamat Datang, silahkan login terlebih dahulu!";
+        document.getElementById('page-menu').style.visibility= "hidden";
+        // $('#page-main').fadeIn();
+        // $('#page-menu').hide();
         // document.getElementById('liffLogoutButton').disabled = true;
     }
 }
@@ -114,7 +132,7 @@ function registerButtonHandlers() {
     // Kode ini menjelaskan apabila kita klik tombol open window, maka method liff.openWindow() akan dijalankan. Ganti parameter url dengan Endpoint URL aplikasi web yang sudah Anda deploy di Heroku atau lainnya. Sedangkan jika parameter external diisi dengan nilai true maka URL di jalankan pada external browser. Namun, jika diisi dengan nilai false maka URL akan dibuka pada browser LINE.
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({
-            url: 'https://mojajan.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
+            url: 'https://mojajan1.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
             external: true
         });
     });
@@ -164,14 +182,14 @@ function registerButtonHandlers() {
     
 }
 
-function ExampleSendMessage(_text){
+function ExampleSendMessage(_text){ 
     console.log("iya kesini");
     if (!liff.isInClient()) {
         sendAlertIfNotInClient();
     } else {
         liff.sendMessages([{
             'type': 'text',
-            'text': _text
+            'text': `Terimakasih ${namaLine}, sudah memesan `+_text
         }]).then(function() {
             window.alert('Ini adalah pesan dari fitur Send Message');
         }).catch(function(error) {
